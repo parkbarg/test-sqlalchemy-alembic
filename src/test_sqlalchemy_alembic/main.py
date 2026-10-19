@@ -2,12 +2,17 @@ import sqlite3
 
 connection = sqlite3.connect("test.db")
 
-connection.execute("""
-CREATE TABLE users (
-    id INTEGER PRIMARY KEY,
-    name TEXT NOT NULL
+connection.execute(
+    "INSERT INTO users (name) VALUES (?)",
+    ("Taro",),
 )
-""")
 
 connection.commit()
+
+rows = connection.execute(
+    "SELECT * FROM users"
+).fetchall()
+
+print(rows)
+
 connection.close()
