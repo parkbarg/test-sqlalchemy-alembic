@@ -1,18 +1,9 @@
-import sqlite3
+from sqlalchemy import create_engine
 
-connection = sqlite3.connect("test.db")
+from models import Base
 
-connection.execute(
-    "INSERT INTO users (name) VALUES (?)",
-    ("Taro",),
-)
+engine = create_engine("sqlite:///test.db")
 
-connection.commit()
+Base.metadata.create_all(engine)
 
-rows = connection.execute(
-    "SELECT * FROM users"
-).fetchall()
-
-print(rows)
-
-connection.close()
+print("created")
