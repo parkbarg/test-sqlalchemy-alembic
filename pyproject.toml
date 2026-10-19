@@ -1,0 +1,19 @@
+[project]
+name = "test-sqlalchemy-alembic"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "parkbarg", email = "24hiro19@gmail.com" }
+]
+requires-python = ">=3.12"
+dependencies = [
+    "sqlalchemy>=2.1.5",
+]
+
+[project.scripts]
+test-sqlalchemy-alembic = "test_sqlalchemy_alembic:main"
+
+[build-system]
+requires = ["uv_build>=0.12.22,<0.13.0"]
+build-backend = "uv_build"
